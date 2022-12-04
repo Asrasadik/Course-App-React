@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-//import "./CourseInput.css";
+//import styled from "styled-components";
+import styles from "./CourseInput.module.css";
 import Button from "../UI/Button";
-
+/*
 const FormControl= styled.div `
 
   margin: 0.5rem 0;
@@ -31,7 +31,7 @@ const FormControl= styled.div `
   border-color: #8b005d;
 }
 
-`;
+`;*/
 
 const CourseInput = (props) => {
   const [inputValue, setInputValue] = useState("");
@@ -58,7 +58,7 @@ const CourseInput = (props) => {
           style={{ borderColor: !isValid ? "red" : "#ccc" }}
           type="text"
           onChange={InputChange}
-        />*
+        />
          <form onSubmit={formSubmit}>
       <div className={`form-control ${!isValid ? "invalid" : ""}`}>
         <label>Course Goal</label>
@@ -66,9 +66,9 @@ const CourseInput = (props) => {
       </div>
       <Button type="submit">Add Goal</Button>
     </form> 
+    -----------------------------------------
     <FormControl className={!isValid && "invalid" }>
-    */
-  return (
+    -------------------------------------------------
     <form onSubmit={formSubmit}>
       <FormControl invalid={!isValid}>
         <label>Course Goal</label>
@@ -76,6 +76,15 @@ const CourseInput = (props) => {
       </FormControl>
       <Button type="submit">Add Goal</Button>
     </form>
+    */
+  return (
+    <form onSubmit={formSubmit}>
+    <div className={`${styles['form-control']} ${!isValid &&styles.invalid}`}>
+      <label>Course Goal</label>
+      <input type="text" onChange={InputChange} />
+    </div>
+    <Button type="submit">Add Goal</Button>
+  </form>
   );
 };
 
